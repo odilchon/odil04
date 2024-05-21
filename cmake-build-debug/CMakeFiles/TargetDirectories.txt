@@ -1,0 +1,5 @@
+/Users/odiljonasmatov/CLionProjects/Paint/cmake-build-debug/CMakeFiles/Paint.dir
+/Users/odiljonasmatov/CLionProjects/Paint/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/odiljonasmatov/CLionProjects/Paint/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/odiljonasmatov/CLionProjects/Paint/cmake-build-debug/CMakeFiles/Paint_autogen_timestamp_deps.dir
+/Users/odiljonasmatov/CLionProjects/Paint/cmake-build-debug/CMakeFiles/Paint_autogen.dir
