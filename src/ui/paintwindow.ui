@@ -174,7 +174,7 @@ font: 11pt &quot;Montserrat&quot;;</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="resources.qrc">:/resources/Logo.png</pixmap>
+     <pixmap resource="resources.qrc">resources/Logo.png</pixmap>
     </property>
    </widget>
    <widget class="QGraphicsView" name="graphicsView">
@@ -238,7 +238,7 @@ border-bottom-right-radius: 0px;</string>
      <string notr="true">border-radius:10px;
 color: #710101;
 text-align: left;
-font: 21pt &quot;icons&quot;;</string>
+font: 21pt &quot;IROicons&quot;;</string>
     </property>
     <property name="text">
      <string>x</string>
@@ -276,7 +276,7 @@ font: 21pt &quot;icons&quot;;</string>
      <string notr="true">border-radius:10px;
 color: #000;
 text-align: left;
-font: 21pt &quot;icons&quot;;</string>
+font: 21pt &quot;IROicons&quot;;</string>
     </property>
     <property name="text">
      <string>y</string>
@@ -311,7 +311,7 @@ font: 21pt &quot;icons&quot;;</string>
      <string notr="true">border-radius:10px;
 color: #a5aeaf;
 text-align: left;
-font: 20pt &quot;icons&quot;;</string>
+font: 20pt &quot;IROicons&quot;;</string>
     </property>
     <property name="text">
      <string>i</string>
@@ -346,7 +346,7 @@ font: 20pt &quot;icons&quot;;</string>
      <string notr="true">border-radius:10px;
 color: #a5aeaf;
 text-align: left;
-font: 20pt &quot;icons&quot;;</string>
+font: 20pt &quot;IROicons&quot;;</string>
     </property>
     <property name="text">
      <string>r</string>
@@ -384,7 +384,7 @@ font: 20pt &quot;icons&quot;;</string>
      <string notr="true">border-radius:10px;
 color: #a5aeaf;
 text-align: left;
-font: 28pt &quot;icons&quot;;</string>
+font: 28pt &quot;IROicons&quot;;</string>
     </property>
     <property name="text">
      <string>o</string>
@@ -419,7 +419,7 @@ font: 28pt &quot;icons&quot;;</string>
      <string notr="true">border-radius:10px;
 color: #a5aeaf;
 text-align: left;
-font: 18pt &quot;icons&quot;;</string>
+font: 18pt &quot;IROicons&quot;;</string>
     </property>
     <property name="text">
      <string>u</string>
@@ -457,7 +457,7 @@ font: 18pt &quot;icons&quot;;</string>
      <string notr="true">border-radius:10px;
 color: #a5aeaf;
 text-align: left;
-font: 19pt &quot;icons&quot;;</string>
+font: 19pt &quot;IROicons&quot;;</string>
     </property>
     <property name="text">
      <string>f</string>
@@ -506,38 +506,7 @@ font: 19pt &quot;icons&quot;;</string>
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QLineEdit" name="searchBar">
-    <property name="geometry">
-     <rect>
-      <x>897</x>
-      <y>26</y>
-      <width>201</width>
-      <height>33</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>9</pointsize>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Search for Item&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #f9f9f9;
-color: black;
-border-radius: 15px;
-padding: 45px;
-font: 9pt &quot;Montserrat&quot;;
-</string>
-    </property>
-    <property name="text">
-     <string extracomment="Search"/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="searchIcon">
+   <widget class="QLabel" name="">
     <property name="geometry">
      <rect>
       <x>912</x>
@@ -555,7 +524,7 @@ font: 9pt &quot;Montserrat&quot;;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 20pt &quot;icons&quot;;</string>
+     <string notr="true">font: 20pt &quot;IROicons&quot;;</string>
     </property>
     <property name="text">
      <string>c</string>
@@ -587,7 +556,7 @@ font: 9pt &quot;Montserrat&quot;;
      <string notr="true">border-radius:10px;
 color: #a5aeaf;
 text-align: left;
-font: 22pt &quot;icons&quot;;</string>
+font: 22pt &quot;IROicons&quot;;</string>
     </property>
     <property name="text">
      <string>e</string>
@@ -887,7 +856,7 @@ font: 9pt &quot;Montserrat&quot;;</string>
      <string notr="true">border-radius:10px;
 color: #a5aeaf;
 text-align: left;
-font: 19pt &quot;icons&quot;;</string>
+font: 19pt &quot;IROicons&quot;;</string>
     </property>
     <property name="text">
      <string>l</string>
@@ -922,7 +891,7 @@ font: 19pt &quot;icons&quot;;</string>
      <string notr="true">border-radius:10px;
 color: #a5aeaf;
 text-align: left;
-font: 20pt &quot;icons&quot;;</string>
+font: 20pt &quot;IROicons&quot;;</string>
     </property>
     <property name="text">
      <string>k</string>

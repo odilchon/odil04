@@ -10,10 +10,10 @@
 
 class PaintScene : public QGraphicsScene
 {
-Q_OBJECT
+    Q_OBJECT
     Q_PROPERTY(int typeFigure
-                       READ typeFigure WRITE setTypeFigure
-                       NOTIFY typeFigureChanged)
+               READ typeFigure WRITE setTypeFigure
+               NOTIFY typeFigureChanged)
 
 public:
     QGraphicsView* view;
@@ -47,7 +47,6 @@ signals:
 
 private:
     Figure *tempFigure;
-
 
 private:
     void mousePressEvent(QGraphicsSceneMouseEvent * event);

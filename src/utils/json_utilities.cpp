@@ -7,28 +7,20 @@
 #include "painttable.h"
 #include "commands.h"
 
-
-/*
- * ----------------------Save Method----------------------
- * Take the path and the scene then save each figure in
- * the sene to a JSON File in a specific path
- * -------------------------------------------------------
- */
-void json_utilities::save(PaintScene *scene, QString path)
-{
+void json_utilities::save(PaintScene *scene, QString path) {
     QVector<Figure*> *newVec = scene->SavedVec;
 
     // Making JSON File in a specific Path
     QFile saveFile(path);
     if (!saveFile.open(QIODevice::ReadWrite| QIODevice::Text)) {
-        qWarning("Couldn't open save file.");
-    }
+            qWarning("Couldn't open save file.");
+        }
 
     // Writing [ to open a list of maps in the file
     saveFile.write("[");
 
     // Looping on the vector to save it
-    for(int i=0; i<newVec->size();i++){
+    for (int i=0; i<newVec->size();i++) {
         QVariantMap settings;
 
         // Getting the Vector start point, end point, color, line weight, and shape type
@@ -39,7 +31,6 @@ void json_utilities::save(PaintScene *scene, QString path)
         int LineW = newVec->at(i)->LineWeight;
         QString shapeName = newVec->at(i)->shapeTypeName;
         QString name = newVec->at(i)->name;
-
 
         // Setting the above values to the setting to path it the file
         settings[QString("Shape")] = QString("%1").arg(shapeName);
@@ -68,34 +59,22 @@ void json_utilities::save(PaintScene *scene, QString path)
     saveFile.close();
 }
 
-/*
- * ----------------------SavePNG Method----------------------
- * Take the path and save a PNG image in it
- * -------------------------------------------------------
- */
-void json_utilities:: savePNG(PaintScene *scene, QString path){
-    QFile saveFile(path);
 
-    QPixmap pixMap = scene->view->grab(scene->sceneRect().toRect());
-    pixMap.save(path);
+void json_utilities:: savePNG(PaintScene *scene, QString path) {
+     QFile saveFile(path);
+
+     QPixmap pixMap = scene->view->grab(scene->sceneRect().toRect());
+     pixMap.save(path);
 }
 
-/*
- * ----------------------open Method----------------------
- * Take the path and the scene then initialine each figure
- * of the JSON File in the scene
- * -------------------------------------------------------
- */
-
-void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
-{
+void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path) {
     // Opening the file of the path
     QFile jsonFile(path);
     QString json_string;
 
-    if(jsonFile.open(QIODevice::ReadOnly | QIODevice::Text)){
-        json_string = jsonFile.readAll();
-        jsonFile.close();
+    if (jsonFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            json_string = jsonFile.readAll();
+            jsonFile.close();
     }
 
     auto json_doc = QJsonDocument::fromJson(json_string.toUtf8());
@@ -114,7 +93,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             color.setRed(x[0].toInt());
             color.setGreen(x[1].toInt());
             color.setBlue(x[2].toInt());
-        }else{
+        } else {
             color.setRed(0);
             color.setGreen(0);
             color.setBlue(0);
@@ -122,7 +101,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
 
         // Getting the Fill Color
         QColor fillColor;
-        if(!jsonObj.toObject().value("fillColor").isUndefined()){
+        if (!jsonObj.toObject().value("fillColor").isUndefined()) {
             f_val = jsonObj.toObject().value("fillColor");
             QString f_color = f_val.toString();
             QStringList _f = f_color.split(", ");
@@ -130,8 +109,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             fillColor.setGreen(_f[1].toInt());
             fillColor.setBlue(_f[2].toInt());
             qDebug() << fillColor;
-        }
-        else{
+        } else {
             fillColor.setRed(255);
             fillColor.setGreen(255);
             fillColor.setBlue(255);
@@ -145,7 +123,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             QStringList FP = _FP.split(", ");
             firstPoint.setX(FP[0].toInt());
             firstPoint.setY(FP[1].toInt());
-        }else{
+        } else {
             continue;
         }
 
@@ -157,7 +135,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             QStringList EP = _EP.split(", ");
             endPoint.setX(EP[0].toInt());
             endPoint.setY(EP[1].toInt());
-        }else{
+        } else {
             continue;
         }
         int LW;
@@ -166,56 +144,50 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             val4 = jsonObj.toObject().value("LineWeight");
             QString _LW = val4.toString();
             LW = _LW.toInt();
-        }else{
+        } else {
             LW = 1;
         }
 
         // Getting the shape Type
         QString _ST;
-        if(!jsonObj.toObject().value("LineWeight").isUndefined()){
+        if(!jsonObj.toObject().value("LineWeight").isUndefined()) {
             val5 = jsonObj.toObject().value("Shape");
             _ST = val5.toString();
-        }else{
+        } else {
             continue;
         }
 
         // Getting the shape name
         QString _SN;
-        if(!jsonObj.toObject().value("ShapeName").isUndefined()){
+        if (!jsonObj.toObject().value("ShapeName").isUndefined()){
             name_val = jsonObj.toObject().value("ShapeName");
             _SN = name_val.toString();
-        }
-        else{
+        } else {
             _SN = "Untitled";
         }
 
         // Conditions for each shape to initialize it
-
-        if(_ST=="Rectangle"){
+        if(_ST=="Rectangle") {
             Figure *item = new Rectangle(firstPoint,color,LW, fillColor);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
             item->name = _SN;
             QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint,table);
-            scene->undoStack->push(addCommand);}
-
-        else if(_ST=="Circle"){
+            scene->undoStack->push(addCommand);} else if (_ST=="Circle"){
             Figure *item = new Circle(firstPoint,color,LW,fillColor);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
             item->name = _SN;
             QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint,table);
             scene->undoStack->push(addCommand);
-        }
-        else if(_ST=="Line"){
+        } else if (_ST=="Line"){
             Figure *item = new Line(firstPoint,color,LW);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
             item->name = _SN;
             QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint,table);
             scene->undoStack->push(addCommand);
-        }
-        else if(_ST=="Triangle"){
+        } else if (_ST=="Triangle"){
             Figure *item = new Triangle(firstPoint,color,LW, fillColor);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);

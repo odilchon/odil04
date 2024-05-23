@@ -3,12 +3,9 @@
 
 #include <QTableWidget>
 #include <QVector>
-
 #include "figure.h"
 
-
-class PaintTable
-{
+class PaintTable {
 public:
     PaintTable();
     static void UpdateTable(QTableWidget* table, QVector<Figure*> ItemVec);

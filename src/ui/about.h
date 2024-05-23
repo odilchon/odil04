@@ -4,13 +4,12 @@
 #include <QDialog>
 
 namespace Ui {
-    class about;
+class about;
 }
-
 
 class about : public QDialog
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit about(QWidget *parent = nullptr);

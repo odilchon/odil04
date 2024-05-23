@@ -3,13 +3,9 @@
 #include <QUndoCommand>
 #include "commands.h"
 
+
 Rectangle::Rectangle(QPointF point,QColor color,int LineWeight, QColor fillColor, QObject *parent) :
-        Figure(point,parent)
-{
-    /*
-     *  Setting the color and Line weight and then make the name
-     *  Accoding to a counter to the class shapes (rCount)
-     */
+    Figure(point,parent) {
     Q_UNUSED(point)
     shapeColor=color;
     this->LineWeight=LineWeight;
@@ -19,27 +15,18 @@ Rectangle::Rectangle(QPointF point,QColor color,int LineWeight, QColor fillColor
     rCount++;
 }
 
+Rectangle::~Rectangle() {}
 
-
-Rectangle::~Rectangle()
-{
-
-}
-
-void Rectangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-{
+void Rectangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     painter->setPen(QPen(shapeColor, LineWeight));
     if(fillColor != Qt::white){
         painter->setBrush(Qt::SolidPattern);
         painter->setBrush(fillColor);
-    }
-    else{
+    } else {
         painter->setBrush(Qt::NoBrush);
     }
 
-
     shapeTypeName = "Rectangle";
-
 
     QRectF rect(endPoint().x() > startPoint().x() ? startPoint().x() : endPoint().x(),
                 endPoint().y() > startPoint().y() ? startPoint().y() : endPoint().y(),
@@ -50,8 +37,6 @@ void Rectangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
     QLineF line2(rect.bottomLeft().x(),rect.bottomLeft().y(),rect.topLeft().x(),rect.topLeft().y());
     this->sideLen2= line2.length();
     this-> perimeter=(sideLen1+sideLen2)*2;
-
-
 
     painter->drawRect(rect);
 

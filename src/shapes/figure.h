@@ -5,16 +5,15 @@
 #include <QGraphicsItem>
 #include <QColor>
 
-class Figure : public QObject, public QGraphicsItem
-{
-Q_OBJECT
+class Figure : public QObject, public QGraphicsItem {
+    Q_OBJECT
     Q_PROPERTY(QPointF startPoint
-                       READ startPoint WRITE setStartPoint
-                       NOTIFY pointChanged)
+               READ startPoint WRITE setStartPoint
+               NOTIFY pointChanged)
     Q_PROPERTY(QPointF endPoint
-                       READ endPoint WRITE setEndPoint
-                       NOTIFY pointChanged)
-    Q_INTERFACES(QGraphicsItem)
+               READ endPoint WRITE setEndPoint
+               NOTIFY pointChanged)
+
 public:
     explicit Figure(QPointF point, QObject *parent = 0);
     ~Figure();
@@ -34,7 +33,6 @@ public:
     QString shapeTypeName;
     QColor fillColor;
 
-
     static int lCount;
     static int rCount;
     static int cCount;
@@ -44,14 +42,10 @@ public:
 signals:
     void pointChanged();
 
-
-
 private:
     QPointF m_startPoint;
     QPointF m_endPoint;
-
     QRectF boundingRect() const;
-
 
 public slots:
     void updateCircle();

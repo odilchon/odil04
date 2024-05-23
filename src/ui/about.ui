@@ -16,7 +16,7 @@
   <widget class="QLabel" name="background">
    <property name="geometry">
     <rect>
-     <x>-80</x>
+     <x>0</x>
      <y>0</y>
      <width>621</width>
      <height>601</height>
@@ -46,7 +46,6 @@
    </property>
    <property name="font">
     <font>
-     <family>icons</family>
      <pointsize>21</pointsize>
      <italic>false</italic>
      <bold>false</bold>
@@ -63,7 +62,7 @@
     <string notr="true">border-radius:10px;
 color: #710101;
 text-align: left;
-font: 21pt &quot;icons&quot;;</string>
+font: 21pt &quot;IROicons&quot;;</string>
    </property>
    <property name="text">
     <string>x</string>
@@ -116,7 +115,7 @@ font: 21pt &quot;icons&quot;;</string>
   <widget class="QLabel" name="maintxt">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>14</x>
      <y>280</y>
      <width>641</width>
      <height>261</height>
@@ -129,14 +128,12 @@ font: 21pt &quot;icons&quot;;</string>
     </font>
    </property>
    <property name="text">
-    <string> Paint Version 1.0 (Build 2024)
-2024
-Bulid by QT Creator 6.0.1 (Open Source)
+    <string> Paint
 
 Paint desktop application
 
-Paint Developer:
-Odilchon Asmatov</string>
+Paint Developers:
+Odilchon (AUCA)</string>
    </property>
   </widget>
   <widget class="QLabel" name="dept">

@@ -3,15 +3,11 @@
 
 #include <QMainWindow>
 #include "paintwindow.h"
-#include "paintscene.h"
 
-namespace Ui {
-    class WelcomeWindow;
-}
+namespace Ui {class WelcomeWindow;}
 
-class WelcomeWindow : public QMainWindow
-{
-Q_OBJECT
+class WelcomeWindow : public QMainWindow {
+    Q_OBJECT
 
 public:
     explicit WelcomeWindow(QWidget *parent = nullptr);

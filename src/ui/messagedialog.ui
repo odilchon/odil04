@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:resources/MessageboxFinal.png);</string>
+    <string notr="true">background-image: url(:/resources/MessageboxFinal.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -81,7 +81,7 @@ font: 11pt &quot;Montserrat&quot;;</string>
    </property>
    <property name="text">
     <string>Are you sure you want to
-stop and save your work?</string>
+stop being creative and save your work?</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -131,7 +131,7 @@ font: 11pt &quot;Montserrat&quot;;</string>
     </font>
    </property>
    <property name="text">
-    <string>Paint Developers</string>
+    <string>Paint</string>
    </property>
   </widget>
   <widget class="QPushButton" name="closeBtn">
@@ -167,7 +167,7 @@ font: 11pt &quot;Montserrat&quot;;</string>
     <string notr="true">border-radius:10px;
 color: #710101;
 text-align: left;
-font: 21pt &quot;icons&quot;;</string>
+font: 21pt &quot;IROicons&quot;;</string>
    </property>
    <property name="text">
     <string>x</string>

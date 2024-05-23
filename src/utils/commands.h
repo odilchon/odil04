@@ -6,9 +6,7 @@
 #include "figure.h"
 #include "paintscene.h"
 
-
-class AddCommand : public QUndoCommand
-{
+class AddCommand : public QUndoCommand {
 public:
     AddCommand(PaintScene *graphicsScene,
                Figure* item,QPointF LastPoint,QTableWidget* table,QUndoCommand *parent = 0);
@@ -29,31 +27,29 @@ private:
 };
 
 
-class DeleteCommand : public QUndoCommand
-{
+ class DeleteCommand : public QUndoCommand {
 public:
-    DeleteCommand(PaintScene *graphicsScene,
-                  Figure* item,QPointF LastPoint,QTableWidget* table,QUndoCommand *parent = 0);
+     DeleteCommand(PaintScene *graphicsScene,
+                Figure* item,QPointF LastPoint,QTableWidget* table,QUndoCommand *parent = 0);
+     ~DeleteCommand();
 
-    ~DeleteCommand();
-
-    void undo() Q_DECL_OVERRIDE;
-    void redo() Q_DECL_OVERRIDE;
+     void undo() Q_DECL_OVERRIDE;
+     void redo() Q_DECL_OVERRIDE;
 
 private:
-    Figure *myDiagramItem;
-    PaintScene *myGraphicsScene;
-    QPointF initialPosition;
-    QTableWidget* table;
-    bool WasModified;
-    bool IsFirstTime;
-    bool WillModify;
-    int ItemIndex;
+     Figure *myDiagramItem;
+     PaintScene *myGraphicsScene;
+     QPointF initialPosition;
+     QTableWidget* table;
+     bool WasModified;
+     bool IsFirstTime;
+     bool WillModify;
+     int ItemIndex;
 };
 
 class ButtonsCommand{
 public:
-    static void clearScene(PaintScene* scene);
+     static void clearScene(PaintScene* scene);
 };
 
 #endif // COMMANDS_H

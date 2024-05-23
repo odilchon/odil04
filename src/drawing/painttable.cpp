@@ -1,16 +1,12 @@
 #include "painttable.h"
 
-PaintTable::PaintTable()
-{
-
-}
-
+PaintTable::PaintTable(){}
 
 void PaintTable::UpdateTable(QTableWidget *table, QVector<Figure *> ItemVec)
 {
     QStringList TableLabel;
     //table->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    TableLabel<<"Name"<<"Type"<<"Perimter"<<"Color"<<"LineWeight";
+    TableLabel<<"Name"<<"Type"<<"Perimeter"<<"Color"<<"LineWeight";
 
     table->setColumnCount(3);
     table->setHorizontalHeaderLabels(TableLabel);
@@ -31,7 +27,7 @@ void PaintTable::UpdateTable(QTableWidget *table, QVector<Figure *> ItemVec)
         // Setting the row values
         table->setItem(table->rowCount()-1, 0, new QTableWidgetItem(name));
         table->setItem(table->rowCount()-1, 1, new QTableWidgetItem(Type));
-        table->setItem(table->rowCount()-1, 2, new QTableWidgetItem(Perimeter));
+        table->setItem(table->rowCount()-1, 2, new QTableWidgetItem(Perimeter));      
         table->item(rowcount,2)->setFlags(table->item(rowcount,2)->flags() &= ~Qt::ItemIsEditable);
         table->item(rowcount,1)->setFlags(table->item(rowcount,1)->flags() &= ~Qt::ItemIsEditable);
         rowcount++;
@@ -54,9 +50,9 @@ void PaintTable::UpdateInfoTable(QTableWidget *table, Figure *item)
     table->setItem(1, 0, new QTableWidgetItem(item->shapeTypeName));
     table->setItem(2, 0, new QTableWidgetItem(QString::number(item->perimeter)));
     table->setItem(3, 0, new QTableWidgetItem(item->shapeColor.name(QColor::HexRgb)));
-    if(item->fillColor == Qt::white){
+    if(item->fillColor == Qt::white) {
         table->setItem(4, 0, new QTableWidgetItem("NO Fill"));
-    }else{
+    } else {
         table->setItem(4, 0, new QTableWidgetItem(item->fillColor.name(QColor::HexRgb)));
     }
     table->setItem(5, 0, new QTableWidgetItem(QString("%1, %2").arg(item->startPoint().rx()).arg(item->startPoint().ry())));
@@ -64,9 +60,6 @@ void PaintTable::UpdateInfoTable(QTableWidget *table, Figure *item)
     table->setItem(7, 0, new QTableWidgetItem(QString::number(item->LineWeight)));
 }
 
-/*
- * Table Buttons
- */
 void PaintTable::SortDVec(QVector<Figure *> *ItemVec)
 {
     std::sort(ItemVec->begin(), ItemVec->end(), compareDs);
@@ -85,9 +78,7 @@ void PaintTable::ClearInfoTable(QTableWidget *table)
     }
 }
 
-/*
- * Function for the above buttons
- */
+
 bool PaintTable::compareAs(const Figure *first, const Figure *second)
 {
     return first->perimeter < second->perimeter;

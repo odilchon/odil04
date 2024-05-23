@@ -5,14 +5,12 @@
 #include <QMouseEvent>
 #include "paintwindow.h"
 
-
 namespace Ui {
-    class messageDialog;
+class messageDialog;
 }
 
-class messageDialog : public QDialog
-{
-Q_OBJECT
+class messageDialog : public QDialog {
+    Q_OBJECT
 
 public:
     explicit messageDialog(QString message,QString LeftText,QString RightText,QWidget *parent = nullptr);
@@ -22,20 +20,16 @@ public:
     int dialogCheck;
     bool closed=false;
 
-
 private slots:
     void on_yesBtn_clicked();
-
     void on_closeBtn_clicked();
-
     void on_noBtn_clicked();
-
-
 
 protected:
     void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
+
 private:
     Ui::messageDialog *ui;
     void closeEvent(QCloseEvent *event);

@@ -36,26 +36,26 @@ public:
         centralwidget->setObjectName("centralwidget");
         label = new QLabel(centralwidget);
         label->setObjectName("label");
-        label->setGeometry(QRect(0, 0, 561, 411));
+        label->setGeometry(QRect(0, 0, 562, 412));
         label->setPixmap(QPixmap(QString::fromUtf8(":/resources/Back open.png")));
         newPaintBtn = new QPushButton(centralwidget);
         newPaintBtn->setObjectName("newPaintBtn");
-        newPaintBtn->setGeometry(QRect(350, 226, 151, 31));
+        newPaintBtn->setGeometry(QRect(210, 190, 151, 31));
         QFont font;
         font.setPointSize(10);
         font.setBold(true);
         newPaintBtn->setFont(font);
         newPaintBtn->setAutoFillBackground(false);
         newPaintBtn->setStyleSheet(QString::fromUtf8("background-color: black;\n"
-                                                     "color: white;\n"
-                                                     "border-radius: 13px;"));
+"      color: white;\n"
+"      border-radius: 13px;"));
         openPaintBtn = new QPushButton(centralwidget);
         openPaintBtn->setObjectName("openPaintBtn");
-        openPaintBtn->setGeometry(QRect(350, 270, 151, 31));
+        openPaintBtn->setGeometry(QRect(210, 250, 151, 31));
         openPaintBtn->setFont(font);
         openPaintBtn->setStyleSheet(QString::fromUtf8("background-color: black;\n"
-                                                      "color: white;\n"
-                                                      "border-radius: 13px;"));
+"      color: white;\n"
+"      border-radius: 13px;"));
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(360, 80, 131, 121));

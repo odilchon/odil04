@@ -8,18 +8,15 @@
 #include <QPointF>
 #include <QJsonDocument>
 #include <QJsonObject>
-
 #include "paintscene.h"
 #include "figure.h"
 
-class json_utilities
-{
+class json_utilities {
 public:
     json_utilities();
     static void save(PaintScene *scene, QString path);
     static void open(PaintScene *scene,QTableWidget* table, QString path);
     static void savePNG(PaintScene *scene, QString path);
-
 
 private:
     PaintScene *myGraphicsScene;
